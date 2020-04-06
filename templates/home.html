@@ -1,0 +1,276 @@
+
+<!DOCTYPE html>
+<html>
+  <title>Chatbot</title>
+  <head>
+    <link
+      rel="shortcut icon"
+      type="image/x-icon"
+      href="https://discordbotlist.com/img/discordbotlist.png"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <style>
+      body {
+        font-family: monospace;
+      }
+      h1 {
+        background-color: yellow;
+        display: inline-block;
+        font-size: 3em;
+        margin: 0;
+        padding: 14px;
+      }
+      h3 {
+        color: black;
+        font-size: 20px;
+        margin-top: 3px;
+        text-align: center;
+      }
+      #chatbox {
+      margin-left: 20px;
+      margin-right: 20px;
+        width: 100%;
+        margin-top: 60px;
+        overflow: auto;
+      }
+      #userInput {
+    margin-left: 20px;
+      margin-right: 20px;
+        width: 100%;
+        margin-top: 60px;
+      }
+<!--      #textInput {-->
+<!--        width: 90%;-->
+<!--        border: none;-->
+<!--        border-bottom: 3px solid black;-->
+<!--        font-family: monospace;-->
+<!--        font-size: small;-->
+<!--      }-->
+      .userText {
+        color: white;
+        font-family: monospace;
+        font-size: 17px;
+        text-align: right;
+        line-height: 30px;
+        margin-right:30px;
+
+      }
+      .userText span {
+        background-color: #808080;
+        padding: 10px;
+        border-radius: 2px;
+        font-size: small;
+        border-radius:5px;
+      }
+      .botText {
+        color: white;
+        font-family: monospace;
+        font-size: 17px;
+        text-align: left;
+        line-height: 30px;
+      }
+      .botText span {
+        background-color: #4169e1;
+        padding: 10px;
+        border-radius: 2px;
+        font-size: small;
+        border-radius:5px;
+      }
+      #tidbit {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 300px;
+      }
+      .boxed {
+        margin-left: auto;
+        margin-right: auto;
+        width: 78%;
+        margin-top: 60px;
+        border: 1px solid green;
+      }
+<!--      .box {-->
+<!--        border: 2px solid black;-->
+<!--      }-->
+      /* Button used to open the chat form - fixed at the bottom of the page */
+.open-button {
+  background-color: #555;
+  color: white;
+
+  border: none;
+  cursor: pointer;
+  opacity: 0.8;
+  position: fixed;
+  bottom: 23px;
+  right: 28px;
+  width: 100px;
+  margin-right:60px;
+}
+
+/* The popup chat - hidden by default */
+.chat-popup {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  right: 15px;
+  border: 3px solid #f1f1f1;
+  z-index: 9;
+  margin-right:50px;
+}
+
+/* Add styles to the form container */
+.form-container {
+  width: 300px;
+  background-color: white;
+}
+
+/* Full-width input */
+#textInput {
+
+  width: 90%;
+  margin: 5px 0 22px 0;
+  border: 0.5px solid black;
+  background: #f1f1f1;
+  resize: none;
+  height:30px;
+  border-radius:5px;
+
+}
+
+/* When the textarea gets focus, do something */
+.form-container textarea:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Set a style for the submit/send button */
+.form-container .btn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom:10px;
+  opacity: 0.8;
+}
+
+/* Add a red background color to the cancel button */
+.form-container .cancel {
+  background-color: red;
+}
+
+/* Add some hover effects to buttons */
+.form-container .btn:hover, .open-button:hover {
+  opacity: 1;
+    </style>
+</head>
+  <body>
+
+
+  <input class="open-button" type="image" src="https://w0.pngwave.com/png/695/247/chatbot-logo-robotics-robot-png-clip-art.png" onclick="openForm()" width="200" height="80">
+<!--  <button class="open-button" onclick="openForm()">Chat</button>-->
+
+<div class="chat-popup" id="myForm">
+ <div class="box"></div>
+    <div class="form-container">
+      <div>
+        <div id="chatbox">
+          <img
+            src="https://discordbotlist.com/img/discordbotlist.png"
+            alt="BOT"
+            style="width:40px;height:40px;"
+          />
+          <p class="botText">
+            <span>Hi! I'm your personal ChatBot</span>
+          </p>
+        </div>
+        <div id="userInput">
+          <input id="textInput" type="text" name="msg" placeholder="Type a message...." />
+        </div>
+
+
+    <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+  </form>
+</div>
+
+<script>
+function openForm() {
+  document.getElementById("myForm").style.display = "block";
+}
+
+function closeForm() {
+  document.getElementById("myForm").style.display = "none";
+}
+
+function getBotResponse() {
+          var rawText = $("#textInput").val();
+          var userHtml = '<p class="userText"><span>' + rawText + "</span></p>";
+          $("#textInput").val("");
+          $("#chatbox").append(userHtml);
+          document
+            .getElementById("userInput")
+            .scrollIntoView({ block: "start", behavior: "smooth" });
+          $.get("/get", { msg: rawText }).done(function(data) {
+            var botHtml = '<p class="botText"><span>' + data + "</span></p>";
+            $("#chatbox").append(botHtml);
+            document
+              .getElementById("userInput")
+              .scrollIntoView({ block: "start", behavior: "smooth" });
+          });
+        }
+        $("#textInput").keypress(function(e) {
+          if (e.which == 13) {
+            getBotResponse();
+          }
+        });
+</script>
+
+
+<!--<div class="box"></div>-->
+<!--    <div class="boxed">-->
+<!--      <div>-->
+<!--        <div id="chatbox">-->
+<!--          <img-->
+<!--            src="https://discordbotlist.com/img/discordbotlist.png"-->
+<!--            alt="BOT"-->
+<!--            style="width:40px;height:40px;"-->
+<!--          />-->
+<!--          <p class="botText">-->
+<!--            <span>Hi! I'm your personal ChatBot</span>-->
+<!--          </p>-->
+<!--        </div>-->
+<!--        <div id="userInput">-->
+<!--          <input id="textInput" type="text" name="msg" placeholder="Message" />-->
+<!--        </div>-->
+
+
+
+<!--      </div>-->
+<!--    </div>-->
+<!-- <script>-->
+<!--        function getBotResponse() {-->
+<!--          var rawText = $("#textInput").val();-->
+<!--          var userHtml = '<p class="userText"><span>' + rawText + "</span></p>";-->
+<!--          $("#textInput").val("");-->
+<!--          $("#chatbox").append(userHtml);-->
+<!--          document-->
+<!--            .getElementById("userInput")-->
+<!--            .scrollIntoView({ block: "start", behavior: "smooth" });-->
+<!--          $.get("/get", { msg: rawText }).done(function(data) {-->
+<!--            var botHtml = '<p class="botText"><span>' + data + "</span></p>";-->
+<!--            $("#chatbox").append(botHtml);-->
+<!--            document-->
+<!--              .getElementById("userInput")-->
+<!--              .scrollIntoView({ block: "start", behavior: "smooth" });-->
+<!--          });-->
+<!--        }-->
+<!--        $("#textInput").keypress(function(e) {-->
+<!--          if (e.which == 13) {-->
+<!--            getBotResponse();-->
+<!--          }-->
+<!--        });-->
+<!--</script>-->
+  </body>
+
+</html>
