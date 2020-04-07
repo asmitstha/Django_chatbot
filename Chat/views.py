@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.http import HttpResponse
 import numpy as np
 import tensorflow as tf
@@ -12,10 +12,32 @@ import os, sys
 import yaml
 import re
 import string
-
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth import authenticate, login
 
 def home(request):
     return render(request,"home.html")
+
+def index(request):
+    return render(request,"index.html")
+
+def register(request):
+    if request.method == 'POST':
+        form= UserCreationForm(request.POST)
+
+        if form.is_valid():
+            form.save()
+            username = form.cleaned_data['username']
+            password = form.cleaned_data['password1']
+
+            user=authenticate(username=username, password=password)
+            login(request, user)
+            return redirect('index')
+    else:
+        form =UserCreationForm()
+
+    context={'form':form}
+    return render(request,'registration/register.html',context)
 
 
 
