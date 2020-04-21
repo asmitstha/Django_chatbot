@@ -240,7 +240,8 @@ button,
 select,
 optgroup,
 textarea {
-  margin: 0;
+
+  margin-top: 0;
   font-family: inherit;
   font-size: inherit;
   line-height: inherit;
@@ -10122,45 +10123,42 @@ header.masthead h1 {
 .text-white-75 {
   color: rgba(255, 255, 255, 0.75);
 }
- #chatbox {
-      margin-left: 20px;
-      margin-right: 20px;
 
+ #chatbox {
+
+      margin-right: 20px;
         width: 100%;
-        height: 300px;
-        overflow-y: scroll;
+
+
+
       }
       #userInput {
-    margin-left: 20px;
+
+
       margin-right: 20px;
         width: 100%;
-        margin-top: 60px;
+        background-color:white;
       }
-<!--      #textInput {-->
-<!--        width: 90%;-->
-<!--        border: none;-->
-<!--        border-bottom: 3px solid black;-->
-<!--        font-family: monospace;-->
-<!--        font-size: small;-->
-<!--      }-->
+
       .userText {
         color: white;
         font-family: monospace;
         font-size: 17px;
         text-align: right;
         line-height: 30px;
-        margin-right:30px;
+        margin-right:10px;
 
         border-radius:5px;
 
 
       }
       .userText span {
-         background-color: #808080;
+          background-color: #808080;
         padding: 10px;
         border-radius: 2px;
         font-size: 15dp;
         border-radius:5px;
+
       }
       .botText {
 
@@ -10225,25 +10223,35 @@ header.masthead h1 {
   z-index: 9;
   margin-right:50px;
   margin-bottom:20px;
+   border-radius:5px;
 
 }
 
 /* Add styles to the form container */
 .form-container {
+
+   margin-top:70px;
   width: 300px;
+  height:400px;
   background-color: white;
+  overflow-x:hidden;
+        overflow-y: auto;
+        scroll-behavior: auto;
 }
 
 /* Full-width input */
 #textInput {
 
   width: 90%;
-  margin: 5px 0 22px 0;
+
   border: 0.5px solid black;
   background: #f1f1f1;
   resize: none;
   height:30px;
   border-radius:5px;
+
+
+
 
 }
 
@@ -10276,5 +10284,8 @@ header.masthead h1 {
 /* Add some hover effects to buttons */
 .form-container .btn:hover, .open-button:hover {
   opacity: 1;
+
+
+
 
 

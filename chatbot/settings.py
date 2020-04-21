@@ -124,4 +124,10 @@ STATICFILES_DIRS = (
   os.path.join(BASE_DIR, 'static'),
 )
 
+MEDIA_URL = '/products/'
+
+MEDIA_DIRS = (
+  os.path.join(BASE_DIR, 'products'),
+)
+
 LOGIN_REDIRECT_URL= '/index'

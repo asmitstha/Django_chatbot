@@ -14,12 +14,14 @@ import re
 import string
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import authenticate, login
+from .models import Product
 
 def home(request):
     return render(request,"home.html")
 
 def index(request):
-    return render(request,"index.html")
+    products = Product.objects.all()
+    return render(request,"index.html", {'products':products})
 
 def register(request):
     if request.method == 'POST':
