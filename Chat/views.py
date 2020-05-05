@@ -8,6 +8,7 @@ from keras.callbacks import ModelCheckpoint
 import requests, zipfile, io
 from keras.preprocessing.text import Tokenizer
 from tensorflow.keras import preprocessing, utils
+from keras.regularizers import l1
 import os, sys
 import yaml
 import re
@@ -17,7 +18,8 @@ from django.contrib.auth import authenticate, login
 from .models import Product
 
 def home(request):
-    return render(request,"home.html")
+    products = Product.objects.all()
+    return render(request,"home.html", {'products':products})
 
 def index(request):
     products = Product.objects.all()
@@ -137,7 +139,7 @@ except:
 
     decoder_inputs = tf.keras.layers.Input(shape=(None,))
     decoder_embedding = tf.keras.layers.Embedding(VOCAB_SIZE, 300, mask_zero=True)(decoder_inputs)
-    decoder_lstm = tf.keras.layers.LSTM(300, return_state=True, return_sequences=True)
+    decoder_lstm = tf.keras.layers.LSTM(300,activity_regularizer=l1(0.001), return_state=True, return_sequences=True)
     decoder_outputs, _, _ = decoder_lstm(decoder_embedding, initial_state=encoder_states)
     decoder_dense = tf.keras.layers.Dense(VOCAB_SIZE, activation=tf.keras.activations.softmax)
     output = decoder_dense(decoder_outputs)
@@ -156,7 +158,7 @@ except:
 try:
     model.load_weights(checkpoint_path)
 except:
-    model.fit([encoder_input_data, decoder_input_data], decoder_output_data, batch_size=64, epochs=30,
+    model.fit([encoder_input_data, decoder_input_data], decoder_output_data, batch_size=64, epochs=40,
               callbacks=[cp_callback])
 
 

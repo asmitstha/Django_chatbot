@@ -28,31 +28,33 @@
 
   <input class="open-button" type="image" src="{% static 'assets/img/chatbot.jpg' %}" onclick="openForm()" width="200" height="80">
         <div class="chat-popup" id="myForm">
-        <div class="form-container">
-          <div>
-                 <div id="chatbox">
-                     <span class="close1" onclick="closeForm()" >&times;</span>
-                     <div >
+             <div style="background-color:white;color:black;border-bottom:1px solid black;height:50px;">
                           <p style="float:right;margin-right:140px;margin-top:10px;color:black;">Chat-Bot</p>
                          <img
                          src="{% static 'assets/img/chatbot.jpg' %}"
                          alt="BOT"
                          style="width:40px;height:40px;"/>
-
+                 <span class="close1" onclick="closeForm()" >&times;</span>
                      </div>
+        <div class="form-container" style="margin-top:0px;height:400px;">
+                 <div id="chatbox">
 
+
+                    <div>
                     <p class="botText">
-                    <span>Hi! I'm your personal ChatBot</span>
+                    <span>Hi! {{user.username}}</span>
                     </p>
                  </div>
-                <div id="userInput">
-                     <input id="textInput" type="text" name="msg" placeholder="Type a message...." />
-                 </div>
+
 
 
 <!--            <button type="button" class="btn cancel" onclick="closeForm()">Close</button>-->
         </div>
+
         </div>
+             <div id="userInput">
+                     <input id="textInput" type="text" name="msg" placeholder="Type a message...." />
+                 </div>
         </div>
 
 
@@ -145,16 +147,18 @@
                 {% for product in products %}
                     <div class="col-lg-4 col-sm-6">
 
-                        <a class="portfolio-box"
-                            ><img class="img-fluid" src="{{ product.image.url }}" alt="image" style="height:400px;"/>
+                        <div class="portfolio-box">
+                            <img class="img-fluid" src="{{ product.image.url }}" alt="image" style="height:400px;"/>
                             <div class="portfolio-box-caption">
                                 <div >{{product.name}}</div>
                                 <div>{{product.price}}</div>
-                            </div></a
-                        >
-
+                            </div>
+                        </div>
                     </div>
+
+
                  {% endfor %}
+                 </div>
                 </div>
         </div>
         </section>
