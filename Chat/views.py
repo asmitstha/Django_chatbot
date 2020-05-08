@@ -45,7 +45,7 @@ def register(request):
 
 
 
-path = r"C:\Users\asmit\Downloads\Chatbot\fyp\chat\data"
+path = r"data"
 files_list = os.listdir(path)
 try:
     model.load_weights(checkpoint_path)
