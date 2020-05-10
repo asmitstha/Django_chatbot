@@ -6,10 +6,17 @@ from Chat.models import Product
 def views(request):
     try:
         the_id = request.session['cart_id']
+        cart = Cart.objects.get(id=the_id)
     except:
         the_id = None
     if the_id:
-        cart = Cart.objects.get(id=the_id)
+        new_total=0.00
+        for item in cart.cartitem_set.all():
+            line_total=float(item.product.price)*item.quantity
+            new_total += line_total
+        request.session['item_total']=cart.cartitem_set.count()
+        cart.total=new_total
+        cart.save(0)
         context = {"cart":cart}
     else:
         empty_message="Your Cart is empty, please keep shopping"
