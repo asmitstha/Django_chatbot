@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'Chat',
+    'carts',
 ]
 
 MIDDLEWARE = [
@@ -131,3 +132,11 @@ MEDIA_DIRS = (
 )
 
 LOGIN_REDIRECT_URL= '/index'
+
+TEMPLATE_CONTEXT_PROCESSORS=[
+                'coffeehouse.stores.processors.onsale',
+                'django.template.context_processors.debug',
+                'django.template.context_processors.request',
+                'django.contrib.auth.context_processors.auth',
+                'django.contrib.messages.context_processors.messages',
+            ]

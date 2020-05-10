@@ -25,6 +25,11 @@ def index(request):
     products = Product.objects.all()
     return render(request,"index.html", {'products':products})
 
+
+def single(request, slug):
+    product = Product.objects.get(slug=slug)
+    return render(request,"single_product.html", {'product':product})
+
 def register(request):
     if request.method == 'POST':
         form= UserCreationForm(request.POST)

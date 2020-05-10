@@ -3,6 +3,11 @@
         {% load static %}
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+       <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
         <meta name="description" content="" />
         <meta name="author" content="" />
         <title>E-commerce</title>
@@ -20,6 +25,47 @@
               color:red;
               font-size:30px;
         }
+        .item-wrapper {
+    padding: 20px;
+    border: 2px solid #efefef;
+    border-radius: 7px;
+    margin-top: 40px;
+}
+.img-wrapper .add-to-cart {
+    background-color: #333;
+    padding: 16px 8px;
+    bottom: 50px;
+
+    z-index: 2;
+    color: #fff;
+    margin: 0 auto;
+    border: none;
+    box-shadow: none;
+}
+.button.expanded {
+    display: block;
+    width: 100%;
+    /* margin-left: 0; */
+    /* margin-right: 0; */
+}
+
+.button {
+    display: inline-block;
+    text-align: center;
+    line-height: 1;
+    cursor: pointer;
+    -webkit-appearance: none;
+    transition: background-color .25s ease-out,color .25s ease-out;
+    vertical-align: middle;
+    border: 1px solid transparent;
+    border-radius: 0;
+    padding: .85em 1em;
+    margin: 0 0 1rem;
+    font-size: .9rem;
+    background-color: #2199e8;
+    color: #fefefe;
+}
+
 
         </style>
     </head>
@@ -68,6 +114,8 @@
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#services">Services</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#portfolio">Portfolio</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#contact">Contact</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{% url 'cart' %}">Cart <span class="badge badge-light">{{request.session.items_total}}</span> </a></li>
+
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/">logout</a></li>
                     </ul>
                 </div>
@@ -141,27 +189,68 @@
         </section>
         <!-- Portfolio section-->
 
-        <section id="portfolio">
-        <div class="container-fluid p-0">
-            <div class="row no-gutters">
-                {% for product in products %}
-                    <div class="col-lg-4 col-sm-6">
+<!--        <section id="portfolio">-->
+<!--        <div class="container-fluid p-0">-->
+<!--            <div class="row no-gutters">-->
+<!--                {% for product in products %}-->
+<!--                    <div class="col-lg-4 col-sm-6">-->
+<!--                        <div class="portfolio-box">-->
+<!--                            <img class="img-fluid" src="{{ product.image.url }}" alt="image" style="height:400px;"/>-->
+<!--                            <div class="portfolio-box-caption">-->
+<!--                                <a href="/posts/{{product.slug}}"><h3> {{product.name}}</h3></a>-->
+<!--                                <div>{{product.price}}</div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                 {% endfor %}-->
+<!--                 </div>-->
+<!--                </div>-->
+<!--        </div>-->
+<!--        </section>-->
+  <div class="container" style="margin-left:150px;">
+<div class="row">
+    {% for product in products %}
+    <div class="small-4 columns">
+        <div class="item-wrapper">
+            <div class="img-wrapper">
 
-                        <div class="portfolio-box">
-                            <img class="img-fluid" src="{{ product.image.url }}" alt="image" style="height:400px;"/>
-                            <div class="portfolio-box-caption">
-                                <div >{{product.name}}</div>
-                                <div>{{product.price}}</div>
-                            </div>
-                        </div>
-                    </div>
+                <a href="/posts/{{product.slug}}">
+                   <img class="img-fluid" src="{{ product.image.url }}" alt="image" style="width:200px;height:200px"/>
+                </a>
+            </div>
+               <form class="from" method="GET" action='{% url "update_cart" product.slug %}'>
+        <input name="qty" type="number" value="1" style="width:100%;"/>
 
+            <a href='{% url "update_cart" product.slug %}?qty=1' class="button expanded add-to-cart">
+                    Add to Cart
+                </a>
 
-                 {% endfor %}
-                 </div>
-                </div>
+                <h3>
+                    <h3><b> {{product.name}}</b></h3>
+                </h3>
+            <h5>
+                <p>Price: $ {{product.price}}</p>
+            </h5>
+            <p>Description: {{product.description}}</p>
+
         </div>
-        </section>
+    </div>
+    {% endfor %}
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         <!-- Call to action section-->
         <section class="page-section bg-dark text-white">
