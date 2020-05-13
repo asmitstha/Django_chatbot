@@ -5,7 +5,7 @@ urlpatterns =[
 
     url(r'checkout', views.checkout, name='checkout'),
     url(r'orders', views.orders, name='user_orders'),
-url(r'placeorder', views.placeorder, name='placeorder'),
+
 
 
 ]
