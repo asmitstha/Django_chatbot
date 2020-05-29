@@ -163,7 +163,7 @@ except:
 try:
     model.load_weights(checkpoint_path)
 except:
-    model.fit([encoder_input_data, decoder_input_data], decoder_output_data, batch_size=64, epochs=40,
+    model.fit([encoder_input_data, decoder_input_data], decoder_output_data, batch_size=168, epochs=60,
               callbacks=[cp_callback])
 
 

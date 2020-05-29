@@ -1,0 +1,52 @@
+commit 8149ce14cc7242f44e493921ecff4dfa46e742f8
+Author: asmitstha <asmitshrestha43@gmail.com>
+Date:   Wed May 13 09:35:19 2020 +0545
+
+    final chat and order
+
+commit 7553c1933899e0f8725748bbdf5e784983b20398
+Author: asmitstha <asmitshrestha43@gmail.com>
+Date:   Sun May 10 18:19:41 2020 +0545
+
+    order added
+
+commit 0b999a7dddbdb28bd9f7b93e4b43c64ebca1a5e8
+Author: asmitstha <asmitshrestha43@gmail.com>
+Date:   Sun May 10 14:25:06 2020 +0545
+
+    Cart function added
+
+commit dc0d6ca69bfc1487bd98a0473882518e59ead241
+Author: asmitstha <asmitshrestha43@gmail.com>
+Date:   Fri May 8 11:26:43 2020 +0545
+
+    chatbot improved
+
+commit 69be8a3dd64e9cc85c4b594c24da8599b3e13e72
+Author: asmitstha <asmitshrestha43@gmail.com>
+Date:   Tue May 5 20:36:21 2020 +0545
+
+    CRUD
+
+commit 4371d121fd978818fd3a262767a602b48e3275be
+Author: asmitstha <asmitshrestha43@gmail.com>
+Date:   Tue Apr 21 18:03:13 2020 +0545
+
+    category and product added
+
+commit 0b699ab47ee36d1a48c8ee75f825e2f732d42d1b
+Author: asmitstha <asmitshrestha43@gmail.com>
+Date:   Tue Apr 7 21:35:32 2020 +0545
+
+    complete chatbot system
+    
+    Login
+    register
+    chatbot
+    webpage
+
+commit 58bfa001853a0611206afd1cb375f3429d45de9f
+Author: asmitstha <asmitshrestha43@gmail.com>
+Date:   Mon Apr 6 10:47:19 2020 +0545
+
+    first commit

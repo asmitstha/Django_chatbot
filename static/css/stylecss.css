@@ -10237,7 +10237,7 @@ header.masthead h1 {
     background-color: white;
     overflow-x: hidden;
     overflow-y: auto;
-    scroll-behavior: auto;
+    scroll-behavior: smooth;
 }
 
 /* Full-width input */

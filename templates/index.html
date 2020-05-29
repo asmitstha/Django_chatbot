@@ -90,17 +90,18 @@
                     <p class="botText">
                     <span>Hi! {{user.username}}</span>
                     </p>
+
                  </div>
 
-
-
-<!--            <button type="button" class="btn cancel" onclick="closeForm()">Close</button>-->
-        </div>
+                        </div>
 
         </div>
-                 <div id="userInput">
+
+         <div id="userInput">
                      <input id="textInput" type="text" name="msg" placeholder="Type a message...." />
                  </div>
+
+<!--            <button type="button" class="btn cancel" onclick="closeForm()">Close</button>-->
         </div>
 
 
@@ -317,7 +318,7 @@ function getBotResponse() {
           $("#chatbox").append(userHtml);
           document
             .getElementById("userInput")
-            .scrollIntoView(true);
+            .scrollIntoView(false);
           $.get("/get", { msg: rawText }).done(function(data) {
             var botHtml = '<p class="botText"><span>' + data + "</span></p>";
             $("#chatbox").append(botHtml);

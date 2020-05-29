@@ -52,10 +52,14 @@
     <option featureType="com.intellij.fileTypeFactory" implementationName="*.css" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="379" y="188" key="com.intellij.ide.util.TipDialog" timestamp="1589121494616">
+    <state x="392" y="167" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1590746532866">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="379" y="188" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1589121494616" />
+    <state x="392" y="167" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.728@0.0.1366.728" timestamp="1590746532866" />
+    <state x="379" y="188" key="com.intellij.ide.util.TipDialog" timestamp="1590744095906">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="379" y="188" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1590744095906" />
     <state x="754" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1589090466261">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
