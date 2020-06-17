@@ -1,7 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5940f7bb-5836-4f61-9140-7b8e05c11043" name="Default Changelist" comment="" />
+    <list default="true" id="5940f7bb-5836-4f61-9140-7b8e05c11043" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/static/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ChatBot_generative_based.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/ChatBot_generative_based.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/talk.yml" beforeDir="false" afterPath="$PROJECT_DIR$/data/talk.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/stylecss.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/stylecss.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/cart/view.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cart/view.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/registration/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/registration/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/registration/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/registration/register.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/single_product.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/single_product.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/training_1/checkpoint" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/training_1/cp.ckpt.data-00000-of-00002" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/training_1/cp.ckpt.data-00001-of-00002" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/training_1/cp.ckpt.index" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -28,7 +43,7 @@
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/orders" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/diabetes" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -56,10 +71,14 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="392" y="167" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.728@0.0.1366.728" timestamp="1590746532866" />
-    <state x="379" y="188" key="com.intellij.ide.util.TipDialog" timestamp="1590744095906">
+    <state x="463" y="119" key="FileChooserDialogImpl" timestamp="1591346872203">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="379" y="188" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1590744095906" />
+    <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1591346872203" />
+    <state x="379" y="188" key="com.intellij.ide.util.TipDialog" timestamp="1592388382300">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="379" y="188" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1592388382300" />
     <state x="754" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1589090466261">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
